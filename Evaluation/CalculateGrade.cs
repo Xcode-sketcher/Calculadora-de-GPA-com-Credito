@@ -42,6 +42,9 @@ namespace GPACalculatorWithCredit.Evaluation
 
         private static string GetLetterGrade(decimal grade)
         {
+            if(grade > 100 || grade < 0)
+                throw new ArgumentOutOfRangeException("Grade cannot be over 100");
+
             var letterGradeValues = new (decimal grade, string letter)[]
             {
                 (97, "A+"),
